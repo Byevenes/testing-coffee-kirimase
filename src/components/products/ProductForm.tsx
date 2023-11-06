@@ -33,12 +33,12 @@ const ProductForm = ({
   const router = useRouter();
   const utils = trpc.useContext();
 
-  //@ts-ignore
   const form = useForm<z.infer<typeof insertProductParams>>({
     // latest Zod release has introduced a TS error with zodResolver
     // open issue: https://github.com/colinhacks/zod/issues/2663
     // errors locally but not in production
     resolver: zodResolver(insertProductParams),
+    //@ts-ignore
     defaultValues: product ?? {
       name: "",
       unitPrice: 0.0,
@@ -46,6 +46,8 @@ const ProductForm = ({
       unitOnOrder: 0,
       discontinued: 0,
       points: 0,
+      images: null,
+      description: "",
     },
   });
 
