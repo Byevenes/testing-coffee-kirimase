@@ -15,6 +15,20 @@
       "when": 1694715064635,
       "tag": "0001_rapid_mindworm",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1699231747416,
+      "tag": "0002_spooky_prodigy",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1699233344112,
+      "tag": "0003_nappy_sandman",
+      "breakpoints": true
     }
   ]
 }

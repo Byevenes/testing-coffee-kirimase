@@ -8,5 +8,8 @@
     "next-auth",
     "shadcn-ui"
   ],
-  "preferredPackageManager": "pnpm"
+  "preferredPackageManager": "pnpm",
+  "rootPath": "src/",
+  "orm": "drizzle",
+  "auth": "next-auth"
 }
