@@ -1,11 +1,8 @@
-import { pgTable, foreignKey, text, timestamp, serial, integer, varchar, boolean, real, json, primaryKey } from "drizzle-orm/pg-core"
-
-import { sql } from "drizzle-orm"
-
+import { pgTable, text, timestamp, serial, integer, varchar, boolean, real, json, primaryKey } from "drizzle-orm/pg-core"
 
 export const session = pgTable("session", {
 	sessionToken: text("sessionToken").primaryKey().notNull(),
-	userId: text("userId").notNull().references(() => user.id, { onDelete: "cascade" } ),
+	userId: text("userId").notNull().references(() => user.id, { onDelete: "cascade" }),
 	expires: timestamp("expires", { mode: 'string' }).notNull(),
 });
 
@@ -29,7 +26,7 @@ export const books = pgTable("books", {
 	author: varchar("author", { length: 256 }).notNull(),
 	pages: integer("pages").notNull(),
 	read: boolean("read").notNull(),
-	userId: varchar("user_id", { length: 256 }).notNull().references(() => user.id, { onDelete: "cascade" } ),
+	userId: varchar("user_id", { length: 256 }).notNull().references(() => user.id, { onDelete: "cascade" }),
 });
 
 export const products = pgTable("products", {
@@ -49,14 +46,14 @@ export const verificationToken = pgTable("verificationToken", {
 	token: text("token").notNull(),
 	expires: timestamp("expires", { mode: 'string' }).notNull(),
 },
-(table) => {
-	return {
-		verificationtokenIdentifierToken: primaryKey(table.identifier, table.token)
-	}
-});
+	(table) => {
+		return {
+			verificationtokenIdentifierToken: primaryKey(table.identifier, table.token)
+		}
+	});
 
 export const account = pgTable("account", {
-	userId: text("userId").notNull().references(() => user.id, { onDelete: "cascade" } ),
+	userId: text("userId").notNull().references(() => user.id, { onDelete: "cascade" }),
 	type: text("type").notNull(),
 	provider: text("provider").notNull(),
 	providerAccountId: text("providerAccountId").notNull(),
@@ -68,8 +65,8 @@ export const account = pgTable("account", {
 	idToken: text("id_token"),
 	sessionState: text("session_state"),
 },
-(table) => {
-	return {
-		accountProviderProvideraccountid: primaryKey(table.provider, table.providerAccountId)
-	}
-});
+	(table) => {
+		return {
+			accountProviderProvideraccountid: primaryKey(table.provider, table.providerAccountId)
+		}
+	});
