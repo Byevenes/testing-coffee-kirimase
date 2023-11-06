@@ -11,7 +11,7 @@
     "db:migrate": "tsx src/lib/db/migrate.ts",
     "db:drop": "drizzle-kit drop",
     "db:pull": "drizzle-kit introspect:pg",
-    "db:studio": "drizzle-kit studio",
+    "db:studio": "drizzle-kit studio --host 127.0.0.1 --port 3001 --verbose",
     "db:check": "drizzle-kit check:pg"
   },
   "dependencies": {
