@@ -35,10 +35,36 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Run DB on Docker 
 
-First, run the development server:
+First, you need to create the new environments variables on `.env` file.
+
+```text
+POSTGRES_USER=XXXXX
+POSTGRES_PASSWORD=XXXXXXXXXXX
+POSTGRES_DB=XXXXXXX
+```
+
+for local `DATABASE_URL` variable, you can use this format.
+
+```text
+DATABASE_URL=postgres://user:pass@db.localtest.me:5432/dbName
+```
+
+Then, run the docker-compose command.
 
 ```bash
 docker-compose up
-# or
-docker-compose -f docker-compose-neon.yaml up
+```
+
+## Run migration
+
+First, you need run the generation command.
+
+```bash
+pnpm run db:generate 
+```
+
+Then, run the migration command.
+
+```bash
+pnpm run db:migrate
 ```
