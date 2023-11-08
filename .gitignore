@@ -37,3 +37,6 @@ next-env.d.ts
 
 # docker volumes
 db
+
+# migrations
+src/lib/db/migrations
