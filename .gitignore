@@ -36,7 +36,7 @@ yarn-error.log*
 next-env.d.ts
 
 # docker volumes
-db
+/db
 
 # migrations
-src/lib/db/migrations
+/src/lib/db/migrations/
