@@ -1,1 +1,0 @@
-ALTER TABLE "products" RENAME COLUMN "product_name" TO "name";
