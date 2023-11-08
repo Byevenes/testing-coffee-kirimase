@@ -12,7 +12,8 @@
     "db:drop": "drizzle-kit drop",
     "db:pull": "drizzle-kit introspect:pg",
     "db:studio": "drizzle-kit studio --host 127.0.0.1 --port 3001 --verbose",
-    "db:check": "drizzle-kit check:pg"
+    "db:check": "drizzle-kit check:pg",
+    "reset": "find . -type dir -name node_modules -prune -print -exec rm -rf '{}' +"
   },
   "dependencies": {
     "@auth/core": "^0.14.0",
