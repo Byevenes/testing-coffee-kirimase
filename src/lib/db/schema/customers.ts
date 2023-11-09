@@ -22,9 +22,9 @@ export const customers = pgTable('customers', {
 export const insertCustomerSchema = createInsertSchema(customers, { birthday: z.coerce.date() });
 
 export const insertCustomerParams = createSelectSchema(customers, {
-  name: z.coerce.string().nonempty(),
-  lastName: z.coerce.string().nonempty(),
-  rut: z.coerce.string().nonempty(),
+  name: z.coerce.string().min(2, { message: "Name must be at least 2 character long" }),
+  lastName: z.coerce.string().min(2, { message: "Last name must be at least 2 character long" }),
+  rut: z.coerce.string().min(2, { message: "Rut must be at least 2 character long" }).max(12, { message: "Rut must be at most 12 character long" }),
   email: z.coerce.string().email(),
   emailVerifier: z.coerce.boolean(),
   birthday: z.coerce.date()
