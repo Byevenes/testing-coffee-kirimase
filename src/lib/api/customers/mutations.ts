@@ -27,9 +27,9 @@ export const createCustomer = async (customer: NewCustomerParams) => {
 
 export const updateCustomer = async (id: CustomerId, customer: UpdateCustomerParams) => {
   const { session } = await getUserAuth();
-  const { id: customerId } = customerIdSchema.parse({ id });
-  const newCustomer = updateCustomerSchema.parse({ ...customer, userId: session?.user.id! });
   try {
+    const { id: customerId } = customerIdSchema.parse({ id });
+    const newCustomer = updateCustomerSchema.parse({ ...customer, userId: session?.user.id! });
     const [c] =  await db
      .update(customers)
      .set(newCustomer)
