@@ -1,15 +1,15 @@
-import { db } from "@/lib/db";
 import { and, eq } from "drizzle-orm";
+
+import { getUserAuth } from "@/lib/auth/utils";
+import { db } from "@/lib/db";
 import { 
   BookId, 
+  bookIdSchema, 
+  books,
+  insertBookSchema, 
   NewBookParams,
   UpdateBookParams, 
-  updateBookSchema,
-  insertBookSchema, 
-  books,
-  bookIdSchema 
-} from "@/lib/db/schema/books";
-import { getUserAuth } from "@/lib/auth/utils";
+  updateBookSchema } from "@/lib/db/schema/books";
 
 export const createBook = async (book: NewBookParams) => {
   const { session } = await getUserAuth();

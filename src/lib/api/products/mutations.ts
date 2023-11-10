@@ -1,14 +1,14 @@
-import { db } from "@/lib/db";
 import { eq } from "drizzle-orm";
+
+import { db } from "@/lib/db";
 import {
-  ProductId,
-  NewProductParams,
-  UpdateProductParams,
-  updateProductSchema,
   insertProductSchema,
+  NewProductParams,
+  ProductId,
+  productIdSchema,
   products,
-  productIdSchema
-} from "@/lib/db/schema/products";
+  UpdateProductParams,
+  updateProductSchema } from "@/lib/db/schema/products";
 
 export const createProduct = async (product: NewProductParams) => {
   const newProduct = insertProductSchema.parse(product);

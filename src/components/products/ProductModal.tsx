@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+
+import { Product } from "@/lib/db/schema/products";
+
 import { Button } from "../ui/button";
 import {
   Dialog,
@@ -9,8 +12,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+
 import ProductForm from "./ProductForm";
-import { Product } from "@/lib/db/schema/products";
 
 export default function ProductModal({ 
   product,

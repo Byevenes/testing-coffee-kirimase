@@ -1,6 +1,7 @@
-import { computersRouter } from "./computers";
 import { router } from "../trpc";
+
 import { booksRouter } from "./books";
+import { computersRouter } from "./computers";
 import { productsRouter } from "./products";
 
 export const appRouter = router({

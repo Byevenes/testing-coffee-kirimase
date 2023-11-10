@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+
+import { Book } from "@/lib/db/schema/books";
+
 import { Button } from "../ui/button";
 import {
   Dialog,
@@ -9,8 +12,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+
 import BookForm from "./BookForm";
-import { Book } from "@/lib/db/schema/books";
 
 export default function BookModal({ 
   book,

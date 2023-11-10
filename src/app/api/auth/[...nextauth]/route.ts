@@ -1,8 +1,9 @@
-import { db } from "@/lib/db";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import { DefaultSession, NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
+
+import { db } from "@/lib/db";
 
 declare module "next-auth" {
   interface Session {
