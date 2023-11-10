@@ -1,4 +1,4 @@
-import { varchar, boolean, date, pgTable, uuid, serial,  } from "drizzle-orm/pg-core";
+import { boolean, date, pgTable, serial,varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -12,7 +12,7 @@ export const customers = pgTable('customers', {
   lastName: varchar("last_name", { length: 256 }).notNull(),
   email: varchar("email", { length: 256 }).notNull().unique(),
   emailVerifier: boolean("email_verifier").default(false),
-  rut: varchar("rut", { length: 256 }).notNull(),
+  rut: varchar("rut", { length: 256 }).notNull().unique(),
   birthday: date("birthday").notNull(),
   userId: varchar("user_id", { length: 256 }).references(() => users.id, { onDelete: "cascade" }).notNull(),
 });
@@ -37,6 +37,10 @@ export const insertCustomerParams = createSelectSchema(customers, {
 export const updateCustomerSchema = createSelectSchema(customers, { birthday: z.coerce.date() });
 
 export const updateCustomerParams = createSelectSchema(customers,{
+  name: z.coerce.string().min(2, { message: "Name must be at least 2 character long" }),
+  lastName: z.coerce.string().min(2, { message: "Last name must be at least 2 character long" }),
+  rut: z.coerce.string().min(2, { message: "Rut must be at least 2 character long" })
+    .max(12, { message: "Rut must be at most 12 character long" }),
   email: z.coerce.string().email(),
   emailVerifier: z.coerce.boolean(),
   birthday: z.coerce.date()
