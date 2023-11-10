@@ -1,11 +1,11 @@
+import { createCustomer, deleteCustomer, updateCustomer } from "@/lib/api/customers/mutations";
 import { getCustomerById, getCustomers } from "@/lib/api/customers/queries";
-import { publicProcedure, router } from "@/lib/server/trpc";
 import {
   customerIdSchema,
   insertCustomerParams,
   updateCustomerParams,
 } from "@/lib/db/schema/customers";
-import { createCustomer, deleteCustomer, updateCustomer } from "@/lib/api/customers/mutations";
+import { publicProcedure, router } from "@/lib/server/trpc";
 
 export const customersRouter = router({
   getCustomers: publicProcedure.query(async () => {

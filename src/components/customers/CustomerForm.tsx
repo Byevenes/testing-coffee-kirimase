@@ -1,9 +1,14 @@
 "use client";
 
-import { Customer, NewCustomerParams, insertCustomerParams } from "@/lib/db/schema/customers";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { z } from "zod";
 
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
@@ -13,16 +18,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { trpc } from "@/lib/trpc/client";
-import { Button } from "@/components/ui/button";
-import { z } from "zod";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { CalendarIcon } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
-import { cn } from "@/lib/utils";
-import { format } from "date-fns";
-import { useRouter } from "next/navigation";
 import { useToast } from "@/components/ui/use-toast";
+import { Customer, insertCustomerParams,NewCustomerParams } from "@/lib/db/schema/customers";
+import { trpc } from "@/lib/trpc/client";
+import { cn } from "@/lib/utils";
 
 const CustomerForm = ({
   customer,

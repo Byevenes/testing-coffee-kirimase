@@ -1,6 +1,7 @@
-import { db } from "@/lib/db/index";
-import { eq, and } from "drizzle-orm";
+import { and,eq } from "drizzle-orm";
+
 import { getUserAuth } from "@/lib/auth/utils";
+import { db } from "@/lib/db/index";
 import { type CustomerId, customerIdSchema, customers } from "@/lib/db/schema/customers";
 
 export const getCustomers = async () => {

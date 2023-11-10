@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
+import { Customer } from "@/lib/db/schema/customers";
+
 import {
   Dialog,
   DialogContent,
@@ -9,8 +12,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+
 import CustomerForm from "./CustomerForm";
-import { Customer } from "@/lib/db/schema/customers";
 
 export default function CustomerModal({ 
   customer,
