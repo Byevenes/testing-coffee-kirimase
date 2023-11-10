@@ -10,7 +10,7 @@ const Customer = ({ customer }: { customer: CompleteCustomer }) => {
       <div className="w-full">
         <div>{customer.name}</div>
       </div>
-      <CustomerModal customer={customer} />
+      <CustomerModal customer={{ ...customer, birthday: new Date(customer.birthday) }} />
     </li>
   );
 };
