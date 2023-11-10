@@ -100,7 +100,7 @@ const OrderForm = ({
                       )}
                     >
                       {field.value ? (
-                        format(new Date(field.value), "PPP")
+                        new Date(field.value).toLocaleDateString()
                       ) : (
                         <span>Pick a date</span>
                       )}
