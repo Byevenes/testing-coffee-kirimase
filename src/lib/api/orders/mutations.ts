@@ -29,7 +29,8 @@ export const updateOrder = async (id: OrderId, order: UpdateOrderParams) => {
   const { session } = await getUserAuth();
   try {
     const { id: orderId } = orderIdSchema.parse({ id });
-    const newOrder = updateOrderSchema.parse({ ...order, userId: session?.user.id! });
+    const newOrder = updateOrderSchema
+      .parse({ ...order, userId: session?.user.id!, ordersDate: new Date(order.ordersDate).toISOString() });
     const [o] =  await db
      .update(orders)
      .set(newOrder)
