@@ -1,8 +1,9 @@
-import "dotenv/config";
-
+import { neon, neonConfig } from '@neondatabase/serverless';
 import { drizzle } from "drizzle-orm/neon-http";
 import { migrate } from "drizzle-orm/neon-http/migrator";
-import { neon, neonConfig } from '@neondatabase/serverless';
+
+import "dotenv/config";
+
 import * as schema from './schema';
 
 const runMigrate = async () => {

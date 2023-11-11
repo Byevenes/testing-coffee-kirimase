@@ -1,27 +1,8 @@
 "use client";
 import { CompleteProduct } from "@/lib/db/schema/products";
 import { trpc } from "@/lib/trpc/client";
+
 import ProductModal from "./ProductModal";
-
-
-export default function ProductList({ products }: { products: CompleteProduct[] }) {
-  const { data: p } = trpc.products.getProducts.useQuery(undefined, {
-    initialData: { products },
-    refetchOnMount: false,
-  });
-
-  if (p.products.length === 0) {
-    return <EmptyState />;
-  }
-
-  return (
-    <ul>
-      {p.products.map((product) => (
-        <Product product={product} key={product.id} />
-      ))}
-    </ul>
-  );
-}
 
 const Product = ({ product }: { product: CompleteProduct }) => {
   return (
@@ -48,3 +29,21 @@ const EmptyState = () => {
   );
 };
 
+export default function ProductList({ products }: { products: CompleteProduct[] }) {
+  const { data: p } = trpc.products.getProducts.useQuery(undefined, {
+    initialData: { products },
+    refetchOnMount: false,
+  });
+
+  if (p.products.length === 0) {
+    return <EmptyState />;
+  }
+
+  return (
+    <ul>
+      {p.products.map((product) => (
+        <Product product={product} key={product.id} />
+      ))}
+    </ul>
+  );
+}

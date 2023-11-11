@@ -1,4 +1,4 @@
-import { text, real, integer, serial, pgTable, json } from "drizzle-orm/pg-core";
+import { integer, json,pgTable, real, serial, text } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod";
 

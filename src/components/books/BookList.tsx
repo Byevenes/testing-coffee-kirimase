@@ -1,27 +1,8 @@
 "use client";
 import { CompleteBook } from "@/lib/db/schema/books";
 import { trpc } from "@/lib/trpc/client";
+
 import BookModal from "./BookModal";
-
-
-export default function BookList({ books }: { books: CompleteBook[] }) {
-  const { data: b } = trpc.books.getBooks.useQuery(undefined, {
-    initialData: { books },
-    refetchOnMount: false,
-  });
-
-  if (b.books.length === 0) {
-    return <EmptyState />;
-  }
-
-  return (
-    <ul>
-      {b.books.map((book) => (
-        <Book book={book} key={book.id} />
-      ))}
-    </ul>
-  );
-}
 
 const Book = ({ book }: { book: CompleteBook }) => {
   return (
@@ -48,3 +29,21 @@ const EmptyState = () => {
   );
 };
 
+export default function BookList({ books }: { books: CompleteBook[] }) {
+  const { data: b } = trpc.books.getBooks.useQuery(undefined, {
+    initialData: { books },
+    refetchOnMount: false,
+  });
+
+  if (b.books.length === 0) {
+    return <EmptyState />;
+  }
+
+  return (
+    <ul>
+      {b.books.map((book) => (
+        <Book book={book} key={book.id} />
+      ))}
+    </ul>
+  );
+}

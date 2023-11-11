@@ -1,7 +1,10 @@
-import { createComputer } from "@/lib/api/computers/mutations";
-import { publicProcedure, router } from "../trpc";
-import { getComputers } from "@/lib/api/computers/queries"
 import { z } from "zod";
+
+import { createComputer } from "@/lib/api/computers/mutations";
+import { getComputers } from "@/lib/api/computers/queries"
+
+import { publicProcedure, router } from "../trpc";
+
 export const computersRouter = router({
   getComputers: publicProcedure.query(async () => {
     return getComputers();
