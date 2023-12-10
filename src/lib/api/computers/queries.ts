@@ -1,6 +1,7 @@
-import { db } from "@/lib/db";
 import { eq } from "drizzle-orm";
-import { computerIdSchema, computers, ComputerId } from "@/lib/db/schema/computers";
+
+import { db } from "@/lib/db";
+import { ComputerId,computerIdSchema, computers } from "@/lib/db/schema/computers";
 
 export const getComputers = async () => {
   const c = await db.select().from(computers);

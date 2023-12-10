@@ -1,9 +1,10 @@
-import { computersRouter } from "./computers";
-import { router } from "../trpc";
-import { booksRouter } from "./books";
-import { productsRouter } from "./products";
-import { customersRouter } from "./customers";
-import { ordersRouter } from "./orders";
+import { router } from '../trpc';
+
+import { booksRouter } from './books';
+import { computersRouter } from './computers';
+import { customersRouter } from './customers';
+import { ordersRouter } from './orders';
+import { productsRouter } from './products';
 
 export const appRouter = router({
   computers: computersRouter,

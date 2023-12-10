@@ -1,11 +1,12 @@
+import { createProduct, deleteProduct, updateProduct } from "@/lib/api/products/mutations";
 import { getProductById, getProducts } from "@/lib/api/products/queries";
-import { publicProcedure, router } from "../trpc";
 import {
-  productIdSchema,
   insertProductParams,
+  productIdSchema,
   updateProductParams,
 } from "@/lib/db/schema/products";
-import { createProduct, deleteProduct, updateProduct } from "@/lib/api/products/mutations";
+
+import { publicProcedure, router } from "../trpc";
 
 export const productsRouter = router({
   getProducts: publicProcedure.query(async () => {

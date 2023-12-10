@@ -1,21 +1,24 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useState } from 'react';
+
+import { Button } from '@/components/ui/button';
+import { Order } from '@/lib/db/schema/orders';
+
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../ui/dialog";
-import OrderForm from "./OrderForm";
-import { Order } from "@/lib/db/schema/orders";
+} from '../ui/dialog';
 
-export default function OrderModal({ 
+import OrderForm from './OrderForm';
+
+export default function OrderModal({
   order,
   emptyState,
-}: { 
+}: {
   order?: Order;
   emptyState?: boolean;
 }) {
@@ -25,7 +28,7 @@ export default function OrderModal({
   return (
     <Dialog onOpenChange={setOpen} open={open}>
       <DialogTrigger asChild>
-      { emptyState ? (
+        {emptyState ? (
           <Button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -37,24 +40,23 @@ export default function OrderModal({
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className="mr-1"
-            >
+              className="mr-1">
               <path d="M5 12h14" />
               <path d="M12 5v14" />
             </svg>
             New Order
           </Button>
         ) : (
-        <Button
-          variant={editing ? "ghost" : "outline"}
-          size={editing ? "sm" : "icon"}
-        >
-          {editing ? "Edit" : "+"}
-        </Button> )}
+          <Button
+            variant={editing ? 'ghost' : 'outline'}
+            size={editing ? 'sm' : 'icon'}>
+            {editing ? 'Edit' : '+'}
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader className="px-5 pt-5">
-          <DialogTitle>{ editing ? "Edit" : "Create" } Order</DialogTitle>
+          <DialogTitle>{editing ? 'Edit' : 'Create'} Order</DialogTitle>
         </DialogHeader>
         <div className="px-5 pb-5">
           <OrderForm closeModal={closeModal} order={order} />

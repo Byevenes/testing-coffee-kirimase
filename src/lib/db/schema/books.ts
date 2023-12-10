@@ -1,9 +1,10 @@
-import { varchar, integer, boolean, serial, pgTable } from "drizzle-orm/pg-core";
+import { boolean, integer, pgTable,serial, varchar } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod";
 
-import { users } from "./auth";
 import { getBooks } from "@/lib/api/books/queries";
+
+import { users } from "./auth";
 
 export const books = pgTable('books', {
   id: serial("id").primaryKey(),

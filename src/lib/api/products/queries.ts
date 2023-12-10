@@ -1,5 +1,6 @@
-import { db } from "@/lib/db";
 import { eq } from "drizzle-orm";
+
+import { db } from "@/lib/db";
 import { type ProductId, productIdSchema, products } from "@/lib/db/schema/products";
 
 export const getProducts = async () => {

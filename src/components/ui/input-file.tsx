@@ -1,7 +1,9 @@
+import React, { HtmlHTMLAttributes } from "react";
+
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+
 import { InputProps } from './input';
-import React, { HtmlHTMLAttributes } from "react";
 
 const InputFile = React.forwardRef<HTMLInputElement, InputProps>(
   function InputFile({ className, type, ...props }, ref) {

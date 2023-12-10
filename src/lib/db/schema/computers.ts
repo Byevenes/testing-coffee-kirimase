@@ -1,6 +1,6 @@
+import { integer,pgTable, serial, text } from "drizzle-orm/pg-core";
 import { createInsertSchema, createSelectSchema } from 'drizzle-zod';
 import { z } from 'zod';
-import { pgTable, serial, text, integer } from "drizzle-orm/pg-core";
 
 export const computers = pgTable("computers", {
   id: serial("id").primaryKey(),

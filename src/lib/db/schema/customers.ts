@@ -3,6 +3,7 @@ import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod";
 
 import { getCustomers } from "@/lib/api/customers/queries";
+
 import { users } from ".";
 
 export const customers = pgTable('customers', {
